@@ -1,0 +1,16 @@
+escape ^aa
+bind X lockscreen
+autodetach on
+deflogin off
+multiuser on
+acladd skyandy
+hardcopy_append on
+startup_message off
+crlf off
+vbell off
+defscrollback 1000
+silencewait 15
+sorendition kG
+caption always "%{= Bcb}--%f %t %u--- %{ck} | (%{yk}%w%{gk})"
+hardstatus alwayslastline "%{= RY}CTRL-a %{BW}%l %{Gb}%C:%s %D %d-%M %{Ck} @ %H %="
+
