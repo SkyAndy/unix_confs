@@ -19,4 +19,4 @@ spannung = "1340" # 13,4V
 # T#ZAHL die hochzählt darum habe ich das datum genommen
 beacon -c DO7EN-15 -d WIDE1-1 -s "DB0LDS-2" 'T#'$counter','$ladestrom','$spannung',000,000,000,00000000'
 sleep 20
-beacon -c DO7EN-15 -d WIDE1-1 -s "DB0LDS-2" ';DO7EN-15 *111111z5236.60NE01311.90ESolarPower'
+beacon -c DO7EN-15 -d WIDE1-1 -s "DB0LDS-2" ';DO7EN-15 *111111z5236.60NE01311.90ESSolarPower'
