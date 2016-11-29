@@ -30,3 +30,19 @@ rrdtool graph cputemp1h.gif --start -1h --title "CPU-Temperatur" --vertical-labe
 rrdtool graph cputemp1m.gif --start -0.5h --title "CPU-Temperatur" --vertical-label "Grad Celsius" DEF:cputemperatur=cputemp.rrd:temp:AVERAGE LINE1:cputemperatur#ff0000:"CPU-Temperatur 1m"
 
 echo "Bilder fertig"
+
+# DEF:cputemperatur=cputemp.rrd <-- DB Dateiname
+# :temp<--Datenbank-Feldname
+# :AVERAGE<--Durchschnitt
+
+# LINE1<--haben ja nur einen Datenpunkt
+# :cputemperatur<---Name der hinter "DEF:" stand
+# #ff0000<--RGB Farbcode der Linie
+# :"CPU-Temperatur 1m" <--- Titel
+
+# letzten vier Wochen: --start end-4w --end 00:00
+#       Januar 2001:  --start 20010101 --end start+31d
+#       Januar 2001:  --start 20010101 --end 20010201
+#       letzte hour:  --start end-1h
+#       letzten 24h:  <nicht angeben Standart>
+#           Gestern:  --end 00:00
