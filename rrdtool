@@ -8,7 +8,7 @@
 
 # Ist die Datenbank schon da? wenn nein anlegen
 if [ ! -f cputemp.rrd ]; then
-	rrdtool create cputemp.rrd --step 60 DS:temp:GAUGE:120:U:U RRA:AVERAGE:0.5:1:2160 RRA:AVERAGE:0.5:5:2016
+	rrdtool create cputemp.rrd --step 60 DS:temp:GAUGE:120:-20:50 RRA:AVERAGE:0.5:1:2160 RRA:AVERAGE:0.5:5:2016
 fi
 
 # ---8<--- ab hier cronjob --->8---
