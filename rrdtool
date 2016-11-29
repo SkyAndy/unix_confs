@@ -1,13 +1,12 @@
 #!/bin/bash
-#Das folgende Kommando erstellt eine RRD, die für die Aufnahme von Temperaturdaten
-#alle 1min etwas rein mit max 2min Verspähtung Min -20 Max 40 C° Rohdaten 
-# ACHTUNG ACHTUNG DAS nur einmal machen sonst ist die Datenbank wieder leer !!!
+# Das folgende Kommando erstellt eine RRD, die für die Aufnahme von Temperaturdaten
+# alle 1min etwas rein mit max 2min Verspätung Min -20 Max 40 C° Rohdaten 
 
-## RRA: Berechnung
+# RRA: Berechnung
 # 1 Stunde = 3600 Sekunden, 36 Stunden * 3600 = 129600 Sekunden, 1 Minute = 60 Sekunden, wir wollen jede Minute einen Wert speichern, 129600 / 60 = 2160
 # Die Anweisung RRA:AVERAGE:0.5:1:2160 reserviert also Platz für 2160 Einträge im ersten Round Robin Archiv.
 
-#Ist die Datenbank schon da? wenn nein anlegen
+# Ist die Datenbank schon da? wenn nein anlegen
 if [ ! -f cputemp.rrd ]; then
 	rrdtool create cputemp.rrd --step 60 DS:temp:GAUGE:120:U:U RRA:AVERAGE:0.5:1:2160 RRA:AVERAGE:0.5:5:2016
 fi
@@ -31,5 +30,3 @@ rrdtool graph cputemp1h.gif --start -1h --title "CPU-Temperatur" --vertical-labe
 rrdtool graph cputemp1m.gif --start -0.5h --title "CPU-Temperatur" --vertical-label "Grad Celsius" DEF:cputemperatur=cputemp.rrd:temp:AVERAGE LINE1:cputemperatur#ff0000:"CPU-Temperatur 1m"
 
 echo "Bilder fertig"
-
-
