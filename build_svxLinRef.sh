@@ -1,5 +1,5 @@
 #!/bin/bash
-# by DO07EN o5/2o17
+# by DO7EN o5/2o17
 # building svxlink / svxreflector from scratch
 killall -9 svxlink
 
