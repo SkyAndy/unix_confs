@@ -21,7 +21,7 @@ int main()
         else pi-=1.0/n;
     }
     pi*=4;
-    cout.precision(17);
+    cout.precision(64);
     cout << pi;
     return 0;
 }
